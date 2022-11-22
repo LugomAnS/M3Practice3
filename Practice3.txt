@@ -1,0 +1,223 @@
+
+#region 1. Определение четного или нечетного числа пользовательского ввода
+
+Console.WriteLine("Задача №1. Определение чётное или нечётное число");
+// запросить у пользователя ввод целого числа и проверить
+int userInut;
+bool userInputCheck = false;
+do
+{
+	Console.WriteLine("\nВведите целое число: ");
+	userInputCheck = Convert.TryParse.ToInt32(Console.ReadKey(), userInut);
+}while (!userInputCheck);
+// осуществить проверку делением с остатком
+if (userInut%2==0)
+{
+	Console.WriteLine("\nВведенное число чётное");
+}
+else Console.WriteLine("\nВведенное число нечётное");
+// вывести результат число четное или нечетное
+Console.ReadKey(true);
+Console.Clear();
+
+#endregion
+
+#region 2. Подсчет сумы карт в игре "21"
+Console.WriteLine("Задача №2. Подсчет сумы карт в игре "21"");
+// поприветствовать пользователя и запросить количество карт на руках (целое число)
+Console.WriteLine("\n\nПриветствуем Вас в нашей игре "21"");
+// считать и проверить число карт
+int userCardsCount = -Int32.Min;
+bool userInputCheck = false;
+do
+{
+	Console.WriteLine("\nВведите количество карт у Вас на руках: ");
+	userInputCheck = Convert.TryParse.ToInt32(Console.ReadKey(), userCardsCount);
+}while (!userInputCheck && (userCardsCount > -1));
+
+if (userCardsCount == 0)
+{
+	Console.WriteLine ("\nУ Вас нет карт на руках, Ваши очки равны нулю");
+	Console.ReadKey(true);
+}
+else
+{
+	Console.WriteLine("\nНеобходимо ввести значения Ваших карт");
+	Console.WriteLine("\nДля карт с числовым номиналом введите целое число");
+	Console.WriteLine("\nДля карты Валет символ: J");
+	Console.WriteLine("\nДля карты Дама символ: Q");
+	Console.WriteLine("\nДля карты Король символ: K");
+	Console.WriteLine("\nДля карты Туз символ: T");
+	int cardIndex = 1;
+	int userScore = 0;
+	// запрос номинала всех карт и их сумирование
+	for (cardIndex, userCardsCount, cardIndex++)
+	{
+		// проверить что ввел пользователь число,символ - если значение не верно повторный запрос ввода
+		do 
+		{
+			userInputCheck = false
+			Console.WriteLine($"\nВведите значение карты № {cardIndex}: ");
+			// проверить число ли
+			string userCardInput = Console.ReadKey();
+			int userCardValue;
+			if ( Int32.TryParse(userCardInput, userCardValue))
+			{
+				if (userCardValue>0 && userCardValue<11)
+				{
+					userInputCheck = true;
+					userScore +=userCardValue;
+				}
+				else
+				{
+					Console.WriteLine("\nЧисловой номинал карты должен быть в диапазоне от 1 до 10");
+				}
+			}
+			// пользователь ввел символ, проверить корректный он или нет и просуммировать
+			else 
+			{
+				switch (true)
+					case (userCardInput.Equals("J", OrdinalIgnoreCase)):
+						userInputCheck = true;
+						userScore +=10;
+						break;
+					case (userCardInput.Equals("Q", OrdinalIgnoreCase)):
+						userInputCheck = true;
+						userScore +=10;
+						break;
+					case (userCardInput.Equals("K", OrdinalIgnoreCase)):
+						userInputCheck = true;
+						userScore +=10;
+						break;
+					case (userCardInput.Equals("T", OrdinalIgnoreCase)):
+						userInputCheck = true;
+						userScore +=10;
+						break;
+					default:
+						Console.WriteLine("\nВведенные символы не являются значениями карт");
+						break;
+			}
+		}while (!userInputCheck)
+	}
+	// вывести номинал всех карт на руках
+	Console.WriteLine($"\nСумма очков Ваших карт: {userScore}");
+	Console.ReadKey(true);
+}
+Console.Clear();
+#endregion
+
+#region 3. Проверка на простое число
+
+Console.WriteLine("Задача №3. Проверка является ли число простым");
+// запросить у пользовател целое число
+int userInut = 0;
+bool userInputCheck = false;
+do
+{
+	Console.WriteLine("\nВведите целое число: ");
+	userInputCheck = Convert.TryParse.ToInt32(Console.ReadLine(), userInut);
+}while (!userInputCheck && userInut != 0);
+// проверить является ли число простым
+
+bool numberSimpleCheck = false
+int numberIndex = 2;
+
+for (numberIndex, userInut-1, numberIndex++)
+{
+	if ( userInut % numberIndex == 0)
+	{
+		numberSimpleCheck = true
+	}
+}
+// вывод информации о проверке
+
+if (numberSimpleCheck)
+{
+	Console.WriteLine("\nВведенное число не является простым");
+}else
+{
+	Console.WriteLine("\nВведенное число является простым");
+}
+Console.ReadKey(true);
+#endregion
+
+#region 4. Нахождение наименьшего элемента в последовательности
+
+Console.WriteLine("Задача №4. Нахождение наименьшего элемента в последовательности");
+
+// запросить у пользователя длину последовательности
+int userNumberLenght = Int.MinValue;
+bool userInputCheck = false;
+do
+{
+	Console.WriteLine("\nВведите длину последовательности чисел: ");
+	userInputCheck = Convert.TryParse.ToInt32(Console.ReadKey(), userNumberLenght);
+}while (!userInputCheck && (userNumberLenght > -1));
+
+// запросить значения (целое число) каждого элемента в последовательности и найти наименьший элемент
+int userLowestElement = Int.MaxValue
+int indexNumbers = 1;
+for (indexNumbers, userNumberLenght, indexNumbers++)
+{
+	userInputCheck = false;
+	int userInputNumber;
+	do
+	{
+		Console.WriteLine("\nВведите длину последовательности чисел: ");
+		userInputCheck = Convert.TryParse.ToInt32(Console.ReadKey(), userInputNumber );
+	}while (!userInputCheck);
+	
+	if (userInputNumber < userLowestElement)
+	{
+		userLowestElement = userInputNumber
+	}
+}
+// вывести наименьший элемент послеовательности
+
+Console.WriteLine($"\nНаименьший элемент в последовательности: {userLowestElement}");
+Console.ReadKey(true);
+Console.Clear();
+#endregion
+
+#region5. Игра "Угадай число"
+
+Console.WriteLine("Задание №5. Игра "Угадай число"");
+// запросить целое число верхнего диапазона
+int userInput;
+bool userInputCheck = false;
+do
+{
+	Console.WriteLine("\nВведите целое число: ");
+	userInputCheck = Convert.TryParse.ToInt32(Console.ReadKey(), userInput);
+}while (!userInputCheck);
+// сгенерировать "случайное число" в диапазоне от 0 до введенного числа
+Random numberRandomGenerator = new Random();
+
+if (userInput == 0)
+{
+	Console.WriteLine("\nВерхний диапазон равен 0, игра не имеет смысла");
+	Console.ReadKey(true);
+}
+else
+{
+	if (userInput > 0)
+	{
+		int numberToGuess = numberRandomGenerator.Next(0,userUnput+1);
+	}
+	else
+	{
+		int numberToGuess = numberRandomGenerator.Next(0,userUnput-1);
+	}
+	// запрашивать у пользователя целые числа пока он не угадает
+	int attemptsToGuess = 1;
+	Console.WriteLine("\nНачните угадывать введя целое число");
+	while (true)
+	{
+		string userNumber = Console.ReadKey();			
+	}
+	// завершении при выигрыше
+	// завершение когда устал вводом ' ' и показом загаданного числа
+}
+
+
+#endregion
